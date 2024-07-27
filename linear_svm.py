@@ -14,11 +14,11 @@ import custom_layer
 
 
 X_RANGE, Y_RANGE, X_RANGE_VARIABILITY = 10, 10, 0.3
-epochs = 1000
+epochs = 100
 no_samples = 6
 means, labels = data_sets.generate_linear_svm_toy_dataset(no_samples, X_RANGE, Y_RANGE, X_RANGE_VARIABILITY)
 
-covariances = data_sets.generate_covariance_matrices(means, [[0.015,0],[0,0.02]], increasing=True)
+covariances = data_sets.generate_covariance_matrices(means, [[0.015,0],[0,0.04]], increasing=True)
 
 #normalize data
 means = 2 * (means-np.min(means)) / (np.max(means)-np.min(means)) - 1
@@ -68,5 +68,4 @@ plt.plot(range(len(losses)), accuracies)
 plt.legend(['loss', 'accuracy'])
 plt.show()
 
-# data_sets.plot_linear_data(means, labels, X_RANGE, Y_RANGE)
 data_sets.plot_samples_with_uncertainty_and_boundary(model, means, labels, covariances, 1, 1)

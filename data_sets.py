@@ -214,7 +214,7 @@ def plot_samples_with_uncertainty_and_boundary(model, samples, labels, covarianc
     fig, ax = plt.subplots()
 
     #set up the grid to plot the predictions over
-    xx, yy = make_meshgrid(0.08,x_range, y_range)
+    xx, yy = make_meshgrid(0.01,x_range, y_range)
 
     plot_contours(ax, model, xx, yy)
     ax.scatter(samples[:,0], samples[:,1], c=labels, cmap=plt.cm.coolwarm, s=20, edgecolors='k')
